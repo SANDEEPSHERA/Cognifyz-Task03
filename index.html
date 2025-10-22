@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex Form Validation & Dynamic DOM</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-shield-alt"></i>
+                <span>FormValidator Pro</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" data-route="home" class="nav-link active">Home</a></li>
+                <li><a href="#" data-route="registration" class="nav-link">Registration</a></li>
+                <li><a href="#" data-route="profile" class="nav-link">Profile</a></li>
+                <li><a href="#" data-route="settings" class="nav-link">Settings</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Home Page -->
+            <section id="home" class="page active">
+                <div class="hero">
+                    <h1>Advanced Form Validation System</h1>
+                    <p>Experience complex form validation with dynamic DOM manipulation and client-side routing</p>
+                    <div class="features">
+                        <div class="feature-card">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>Password Strength</h3>
+                            <p>Real-time password strength validation</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h3>Dynamic Updates</h3>
+                            <p>Live DOM manipulation and feedback</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-route"></i>
+                            <h3>Client Routing</h3>
+                            <p>Smooth navigation without page reloads</p>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-section">
+                        <h3>🧪 Interactive Testing</h3>
+                        <p>Test all functionality with these interactive buttons:</p>
+                        <div class="demo-buttons">
+                            <button onclick="testAllFeatures()" class="btn btn-primary">Test All Features</button>
+                            <button onclick="window.demo?.demoNavigation()" class="btn btn-primary">Test Navigation</button>
+                            <button onclick="window.demo?.demoPasswordStrength()" class="btn btn-primary">Test Password Strength</button>
+                            <button onclick="window.demo?.demoFormValidation()" class="btn btn-primary">Test Form Validation</button>
+                            <button onclick="window.demo?.demoNotifications()" class="btn btn-primary">Test Notifications</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Registration Form -->
+            <section id="registration" class="page">
+                <div class="form-container">
+                    <h2>User Registration</h2>
+                    <form id="registrationForm" class="form">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                            <div class="error-message"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                            <div class="error-message"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                            <div class="error-message"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                            <div class="error-message"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required>
+                            <div class="password-strength">
+                                <div class="strength-bar">
+                                    <div class="strength-fill"></div>
+                                </div>
+                                <div class="strength-text"></div>
+                            </div>
+                            <div class="error-message"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required>
+                            <div class="error-message"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="birthDate">Date of Birth</label>
+                            <input type="date" id="birthDate" name="birthDate" required>
+                            <div class="error-message"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <select id="country" name="country" required>
+                                <option value="">Select Country</option>
+                                <option value="US">United States</option>
+                                <option value="CA">Canada</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="AU">Australia</option>
+                                <option value="DE">Germany</option>
+                                <option value="FR">France</option>
+                                <option value="JP">Japan</option>
+                                <option value="IN">India</option>
+                            </select>
+                            <div class="error-message"></div>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="terms" name="terms" required>
+                                <span class="checkmark"></span>
+                                I agree to the Terms and Conditions
+                            </label>
+                            <div class="error-message"></div>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <span class="checkmark"></span>
+                                Subscribe to newsletter
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Profile Page -->
+            <section id="profile" class="page">
+                <div class="profile-container">
+                    <h2>User Profile</h2>
+                    <div class="profile-info">
+                        <div class="profile-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="profile-details">
+                            <h3 id="profileName">John Doe</h3>
+                            <p id="profileEmail">john.doe@example.com</p>
+                            <p id="profileCountry">United States</p>
+                        </div>
+                    </div>
+                    <div class="profile-stats">
+                        <div class="stat-card">
+                            <i class="fas fa-calendar"></i>
+                            <span>Member since</span>
+                            <strong id="memberSince">January 2024</strong>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Security Level</span>
+                            <strong id="securityLevel">High</strong>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Page -->
+            <section id="settings" class="page">
+                <div class="settings-container">
+                    <h2>Account Settings</h2>
+                    <form id="settingsForm" class="form">
+                        <div class="form-group">
+                            <label for="currentPassword">Current Password</label>
+                            <input type="password" id="currentPassword" name="currentPassword">
+                            <div class="error-message"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="newPassword">New Password</label>
+                            <input type="password" id="newPassword" name="newPassword">
+                            <div class="password-strength">
+                                <div class="strength-bar">
+                                    <div class="strength-fill"></div>
+                                </div>
+                                <div class="strength-text"></div>
+                            </div>
+                            <div class="error-message"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmNewPassword">Confirm New Password</label>
+                            <input type="password" id="confirmNewPassword" name="confirmNewPassword">
+                            <div class="error-message"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notificationEmail">Notification Email</label>
+                            <input type="email" id="notificationEmail" name="notificationEmail">
+                            <div class="error-message"></div>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="emailNotifications" name="emailNotifications" checked>
+                                <span class="checkmark"></span>
+                                Email notifications
+                            </label>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="smsNotifications" name="smsNotifications">
+                                <span class="checkmark"></span>
+                                SMS notifications
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <!-- Notification Container -->
+        <div id="notificationContainer" class="notification-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="demo.js"></script>
+</body>
+</html>
